@@ -1,9 +1,9 @@
 camera_id,slice_type,frames,risk,rationale
-front,normal,,TODO,TODO
-front,hard,,TODO,TODO
-rear,normal,,TODO,TODO
-rear,hard,,TODO,TODO
-left,normal,,TODO,TODO
-left,hard,,TODO,TODO
-right,normal,,TODO,TODO
-right,hard,,TODO,TODO
+front,normal,25,medium,"Baseline vehicle and rider class consistency under ordinary forward traffic"
+front,hard,25,high,"Occlusion and dense ego-lane traffic can hide small road users"
+rear,normal,25,medium,"Baseline rear-view object coverage and class consistency"
+rear,hard,25,high,"Boundary truncation and reversing traffic increase missed-object risk"
+left,normal,25,medium,"Baseline lateral traffic with fisheye geometry"
+left,hard,25,high,"Fisheye border distortion and ThreeWheeler scale make H=40 decisions fragile"
+right,normal,25,medium,"Baseline lateral traffic with the same label taxonomy"
+right,hard,25,high,"Camera seam, lens edge, and partial vehicles require truncation and duplicate checks"

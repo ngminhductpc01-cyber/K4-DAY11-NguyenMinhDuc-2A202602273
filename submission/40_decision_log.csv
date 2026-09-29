@@ -1,1 +1,13 @@
 id,date,question,decision,rationale,status
+P4-01,2026-09-29,adasind_152940 R6 ThreeWheeler is absent from learner,REWORK,"Visible ≥40px ThreeWheeler; R04; compare and original-image evidence",open
+P4-02,2026-09-29,adasind_152940 L3 Bike is below H=40,REWORK,"Locked XML height ≈21px; R01; QA screenshot",open
+P4-03,2026-09-29,adasind_167700 L5 passenger vehicle class,REWORK,"Truck versus Car at IoU 0.928; R04; reference and model concur but image was checked",open
+P4-04,2026-09-29,adasind_212280 L5 duplicates L2,REWORK,"Near-coincident Bike boxes for one physical bicycle; R01; QA screenshot",open
+P4-05,2026-09-29,adasind_212280 L3 Bus truncated attribute,REWORK,"Bus is visibly cut by left image/lens boundary while truncated=false; R05; QA screenshot",open
+P4-06,2026-09-29,adasind_212280 reference R1 omits the walking person,ESCALATE,"Image supports R03 Pedestrian plus Bike; do not make learner conform to reference",escalated
+P4-07,2026-09-29,Model-only and model-missing boxes across B3-center,ESCALATE,"Three frames provide insufficient evidence for a model-domain conclusion; retain learner labels pending broader review",escalated
+P4-08,2026-09-29,r1_craft lock-code mismatch,ESCALATE,"Lock-code mismatch requires verification before final submission; no relock or XML edit was performed",escalated
+P5-01,2026-09-29,C0 calibration missing boxes,REWORK,"Job 54 v2 adds R2 Bike and R3/R5/R6 ThreeWheeler from original-image/reference evidence; P1 baseline lock remains immutable",completed
+P5-02,2026-09-29,B3-center v2 export and lock,REWORK,"Applied approved handoff: remove below-H Bike, add ThreeWheeler, Truck→Car, remove duplicate Bike, set Bus truncated=true; v2 lock F6A8-6EF7",completed
+P5-03,2026-09-29,Parking supplied final annotation,KEEP,"User supplied final Parking annotation; Job 53 parking-lot-core.jpg was read-only confirmed with 25 objects and was not modified or re-imported",completed
+P6-01,2026-09-29,Local submission gate,CHECK,"triage valid; doctor passed with only missing-gh public-repository warning; manifest failed_gates is empty",completed

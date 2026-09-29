@@ -8,11 +8,11 @@ không làm thay phần lý do.
 
 | camera_id | Hard case cần chọn | Vì sao dễ sai | Annotation space / calibration cần giữ | Cách review trước khi gọi là gold |
 |---|---|---|---|---|
-| front | TODO | TODO | TODO | TODO |
-| rear | TODO | TODO | TODO | TODO |
-| left | TODO | TODO | TODO | TODO |
-| right | TODO | TODO | TODO | TODO |
+| front | Xe máy/người lái bị che bởi xe ego hoặc xe đông | Dễ bỏ sót rider hoặc gộp nhầm xe nhỏ | Giữ intrinsics/extrinsics phiên bản đã dùng, image-space theo từng camera | Hai annotator độc lập, adjudication trên ảnh gốc, kiểm rule R01/R03/R04/R05 |
+| rear | Đối tượng lùi, đi vào/ra biên ảnh | Dễ sai `truncated` hoặc bỏ box ở mép | Giữ mapping rear và mốc biên lens; không chuyển box sang camera khác | Review keyframe, kiểm thuộc tính `truncated`, đối chiếu ảnh gốc |
+| left | ThreeWheeler/xe nhỏ sát rìa fisheye | Méo fisheye làm sai lớp, kích thước và ngưỡng H=40 | Giữ calibration left và quy ước đo chiều cao theo ảnh gốc | Peer review độc lập, đo H, adjudicate các ca sát ngưỡng |
+| right | Xe cắt seam và xe bị che một phần | Có nguy cơ duplicate hoặc ghép nhầm đối tượng giữa camera | Giữ calibration right, timestamp đồng bộ và policy seam | Review trong camera trước, chỉ ghép cross-camera khi policy/evidence đầy đủ |
 
-- Khi nào cần refresh gold set (đổi camera, calibration hoặc rule): TODO
-- Một ca seam/cross-camera cần policy và evidence trước khi ghép hai box: TODO
-- Vì sao peer agreement hoặc quality report trên ảnh một camera chưa chứng minh gold set đúng cho cả bốn camera: TODO
+- Refresh gold set khi đổi camera/lens, cập nhật intrinsics hoặc extrinsics, đổi taxonomy/threshold/thuộc tính, hoặc khi error drift theo camera vượt ngưỡng review đã thống nhất.
+- Ca seam/cross-camera phải có policy xác định điều kiện ghép, timestamp đồng bộ, calibration/extrinsics tương ứng, bằng chứng cùng physical object và quy tắc output (một hay nhiều box) trước khi hợp nhất.
+- Peer agreement hoặc quality report của một camera chỉ chứng minh mức nhất quán trên ảnh và calibration của camera đó; chúng không kiểm tra distortion, visibility, seam hay distribution shift của ba camera còn lại.

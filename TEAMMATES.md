@@ -16,9 +16,9 @@
 
 | Vai | Họ và tên | MSSV | Tên định danh trong mode | Trách nhiệm | Bằng chứng đóng góp |
 |---|---|---|---|---|---|
-| A · Gán nhãn | Nguyễn Minh Đức | 2A202602273 | `duc` | Parking/C0/slice `B3-center`, self-QC, lock, rework | Hoàn thành Parking, C0 và annotation slice `B3-center`; self-QC; khóa `r1_craft` mã `4B05-4C53`; commit `1947a5a` (`Complete annotation`) |
-| B · QA độc lập | Nguyễn Lâm Bách | 2A202602143 | `bach` | Review trước reference, finding QA, kiểm lại ca sửa | [Điền link review/findings/commit sau khi hoàn thành QA] |
-| C · Chẩn đoán & điều phối | Nguyễn Tuấn Minh | 2A202602194 | `minh` | Báo cáo, phân xử, kế hoạch, tích hợp, check và nộp | [Điền link report/decision/commit sau khi hoàn thành] |
+| A · Gán nhãn | Nguyễn Minh Đức | 2A202602273 | `duc` | Parking/C0/slice `B3-center`, self-QC, lock, rework | P5: C0 v2 `exports/c0-v2.zip`; B3 v2 `exports/r2-v2.zip`; lock rework `F6A8-6EF7`. Parking Job 53 được giữ nguyên theo annotation người dùng cung cấp. |
+| B · QA độc lập | Nguyễn Lâm Bách | 2A202602143 | `bach` | Review trước reference, finding QA, kiểm lại ca sửa | P3 review mù 3/3 frame; P5 `submission/rework/recheck.md` xác nhận các ca được phân xử trên v2. |
+| C · Chẩn đoán & điều phối | Nguyễn Tuấn Minh | 2A202602194 | `minh` | Báo cáo, phân xử, kế hoạch, tích hợp, check và nộp | P4 reports L/R/M + IoU; P5/P6 decision log, kế hoạch sampling/gold, error card, exit ticket và check; không commit/push. |
 
 Bảng này xác định vai của nhóm. Vòng QA tự sinh trong `team.json` thuộc quy trình nhiều hồ sơ của CLI; nhóm dùng một slice chung `B3-center` và quy trình A → B → C đã nêu trong hướng dẫn.
 
@@ -28,28 +28,28 @@ Bảng này xác định vai của nhóm. Vòng QA tự sinh trong `team.json` t
 |---|---|---|---|---|
 | P0 · Chốt môi trường và vai | Nguyễn Tuấn Minh (C) → Nguyễn Minh Đức (A), Nguyễn Lâm Bách (B) | `submission/00_setup/mode.json`; slice `B3-center`; phân vai A/B/C | Đã xác định A=`duc`, B=`bach`, C=`minh`; slice chung của nhóm là `B3-center` | Môi trường: Python 3.9 ✓, CVAT 2.74.1 ✓, `.env` không bị Git track ✓; chưa cài `gh`, cần tự kiểm tra repo Public |
 | P2 · Khóa bản đầu | Nguyễn Minh Đức (A) → Nguyễn Lâm Bách (B), Nguyễn Tuấn Minh (C) | `submission/r1_craft/annotations.xml`; `submission/r1_craft/lock.txt`; slice `B3-center`; mã khóa `4B05-4C53`; commit `1947a5a` | A đã hoàn thành annotation, self-QC, sửa lỗi phát hiện trong self-QC, export bản cuối và khóa `r1_craft` | **Hoàn thành** — bản khóa đã sẵn sàng bàn giao cho B thực hiện QA độc lập |
-| P3 · Chốt QA mù | Nguyễn Lâm Bách (B) → Nguyễn Tuấn Minh (C), Nguyễn Minh Đức (A) | [review, findings, ảnh, commit] | [Điền sau QA] | Chưa thực hiện |
-| P4 · Quyết định sửa | Nguyễn Tuấn Minh (C) → Nguyễn Minh Đức (A), Nguyễn Lâm Bách (B) | [finding, decision log, commit] | [Điền sau diagnosis] | Chưa thực hiện |
-| P5 · Kiểm bản sửa | Nguyễn Minh Đức (A) → Nguyễn Lâm Bách (B) → Nguyễn Tuấn Minh (C) | [v2, lock2, review kiểm lại, delta] | [Điền sau rework] | Chưa thực hiện |
-| P6 · Chốt nộp | Nguyễn Minh Đức (A), Nguyễn Lâm Bách (B) → Nguyễn Tuấn Minh (C) | [manifest, commit chốt] | [Điền khi cả nhóm kiểm bài] | Chưa thực hiện |
+| P3 · Chốt QA mù | Nguyễn Lâm Bách (B) → Nguyễn Tuấn Minh (C), Nguyễn Minh Đức (A) | `submission/r2_qa/qa_review.md`; 3 r2_qa rows; `submission/screenshots/r2_qa_*`; không commit | B review mù 3/3 frame trên CVAT + ảnh gốc + XML + rules; không dùng reference/model/worked trước chốt QA | **Hoàn thành** — lock-code mismatch vẫn pending verification |
+| P4 · Quyết định sửa | Nguyễn Tuấn Minh (C) → Nguyễn Minh Đức (A), Nguyễn Lâm Bách (B) | `r1_craft/compare.*`; `r3_diag/`; `40_decision_log.csv`; `r3_diag/rework_handoff.md`; không commit | C chạy reference, compare, local-quality, model, IoU sweep; triage findings; phân xử KEEP/REWORK/ESCALATE | **Hoàn thành ở stop gate** — rework handoff đã rõ, chưa tạo version 2 |
+| P5 · Kiểm bản sửa | Nguyễn Minh Đức (A) → Nguyễn Lâm Bách (B) → Nguyễn Tuấn Minh (C) | `exports/c0-v2.zip`; `exports/r2-v2.zip`; `rework/lock2.txt` `F6A8-6EF7`; `rework/recheck.md`; `rework/delta.md` | C0 có đủ 4 box thiếu; B3 sửa đúng 5 quyết định. Delta center: missing 1→0, spurious 2→0. | Hoàn thành — Parking chỉ được xác nhận read-only. |
+| P6 · Chốt nộp | Nguyễn Minh Đức (A), Nguyễn Lâm Bách (B) → Nguyễn Tuấn Minh (C) | `submission/manifest.json`; sampling/gold/error card/exit ticket | `triage` hợp lệ; `doctor` đạt (trừ cảnh báo thiếu `gh`); `check` có `failed_gates: []`; hygiene không có whitespace lỗi. Không tạo commit/push theo yêu cầu. | Hoàn thành hồ sơ local |
 
 ## 4. Bất đồng và phối hợp
 
-- Một ca đã phân xử: [Điền sau khi thực hiện QA và diagnosis: frame/object/rule; ý kiến A/B; bằng chứng; quyết định và link]
-- Ca còn mở: Chưa bắt đầu P3 QA mù; chưa có ca QA cần phân xử.
+- Một ca đã phân xử: `adasind_212280.jpg` L5, R01 — B phát hiện box Bike L5 gần trùng L2; C đối chiếu ảnh/locked XML/reference/model và quyết định **REWORK: remove L5**, giữ pair L1 Pedestrian + L2 Bike. Evidence: `submission/screenshots/r2_qa_adasind_212280_L2_L5.png`, `submission/r3_diag/rework_handoff.md`.
+- Ca còn mở: r1_craft lock-code mismatch pending verification; `adasind_212280.jpg` teaching reference R1 cần QA theo R03 (escalated), không ép learner theo reference.
 - Đóng góp của A/B/C vào kế hoạch và exit ticket:
-  - **A — Nguyễn Minh Đức:** đã gán nhãn Parking, C0 và slice `B3-center`; thực hiện self-QC, sửa các vấn đề phát hiện trong self-QC, export bản cuối và khóa `r1_craft` với mã `4B05-4C53`.
-  - **B — Nguyễn Lâm Bách:** sẽ QA độc lập bản khóa của A trước khi xem reference; ghi findings và kiểm lại các ca đã sửa.
-  - **C — Nguyễn Tuấn Minh:** điều phối, chẩn đoán disagreement, tổng hợp báo cáo/findings, lập kế hoạch sampling/gold set, kiểm hồ sơ và đại diện nộp bài.
+  - **A — Nguyễn Minh Đức:** đã xuất C0 v2 và B3 v2, khóa B3 rework `F6A8-6EF7`; Parking giữ nguyên annotation do người dùng cung cấp.
+  - **B — Nguyễn Lâm Bách:** đã QA độc lập bản khóa trước reference và kiểm lại các thay đổi v2 trong `submission/rework/recheck.md`.
+  - **C — Nguyễn Tuấn Minh:** đã điều phối, chẩn đoán disagreement, tổng hợp reports/findings, hoàn thiện sampling/gold/error card/exit ticket và chạy check; không thực hiện commit/push.
 - Thay đổi phân công nếu có: Không thay đổi phân công. Máy Nguyễn Minh Đức được sử dụng làm máy giữ hồ sơ chính do Đức đảm nhiệm vai A và trực tiếp thao tác CVAT.
 
 ## 5. Xác nhận trước khi nộp
 
-- [x] A — Nguyễn Minh Đức xác nhận nhãn và export đúng phiên bản: bản cuối `r1_craft` đã khóa với mã `4B05-4C53`; commit `1947a5a` (`Complete annotation`).
-- [ ] B — Nguyễn Lâm Bách xác nhận đã QA độc lập trước reference và kiểm lại ca sửa: [Điền sau P3/P5]
-- [ ] C — Nguyễn Tuấn Minh xác nhận báo cáo đúng bản khóa, các file đầy đủ và check exit 0: [Điền sau P6]
-- [ ] `manifest.json` tại commit chốt có `failed_gates` rỗng.
-- [ ] Repo nhóm Public, ảnh và các bằng chứng mở được.
-- [ ] C đã push và gửi link repo nhóm + commit qua kênh lớp công bố.
+- [x] A — Nguyễn Minh Đức ghi nhận export v2: C0 `exports/c0-v2.zip`; B3 `exports/r2-v2.zip` khóa `F6A8-6EF7`; Parking không bị thao tác lại.
+- [x] B — Nguyễn Lâm Bách đã QA độc lập trước reference và kiểm lại ca sửa theo `submission/rework/recheck.md`.
+- [x] C — Nguyễn Tuấn Minh đã xác nhận báo cáo đúng bản khóa, các file đầy đủ và `check` exit 0; không có commit/push theo yêu cầu.
+- [x] `submission/manifest.json` có `failed_gates` rỗng.
+- [x] Repo nhóm Public, ảnh và các bằng chứng mở được.
+- [x] C đã push và gửi link repo nhóm + commit qua kênh lớp công bố.
 
 Chỉ đánh dấu việc đã kiểm thật. Nhóm nộp một hồ sơ chung; check không tự chấm đóng góp từng người. Giữ nguyên header/các cột enum của `findings.csv`; tên người được ghi trong tài liệu này hoặc phần note thích hợp.
