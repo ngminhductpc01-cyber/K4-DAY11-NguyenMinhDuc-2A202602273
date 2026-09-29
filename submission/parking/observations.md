@@ -1,6 +1,6 @@
 # Quan sát vạch ô đỗ
 
-- Hai vạch `parking_line` đã vẽ (mô tả vị trí trong ảnh): TODO
-- Một vạch/dấu sơn hoặc biên **không** vẽ, và vì sao: TODO
-- Polygon `free_space` dừng ở đâu; có phần bị che nào không: TODO
-- Ca chưa chắc cần hỏi người soát (nếu không có, ghi “không có”): TODO
+- Hai vạch `parking_line` đã vẽ (mô tả vị trí trong ảnh): Nhóm chọn các vạch sơn ở khu vực bãi đỗ phía trước và giữa ảnh, đặc biệt các vạch xiên kéo từ mép gần người quan sát vào phía trong bãi. Đây là các vạch có vai trò phân chia các ô đỗ riêng biệt; polyline bám theo phần sơn thực tế nhìn thấy.
+- Một vạch/dấu sơn hoặc biên **không** vẽ, và vì sao: Không gán `parking_line` cho đường/biên chạy ngang dài ở khu vực lối xe chạy phía xa và các mép mặt đường không có chức năng phân chia hai ô đỗ. Việc một đường có màu sáng hoặc giống vạch sơn không đủ để coi đó là `parking_line`.
+- Polygon `free_space` dừng ở đâu; có phần bị che nào không: `free_space` được giới hạn trên phần mặt đường trống nhìn thấy trong khu vực bãi đỗ/lối xe chạy. Polygon dừng tại ranh giới của vùng mặt đường được chọn và không kéo xuyên qua xe đang xuất hiện ở phía xa hoặc các vùng/vật thể che khuất. Phần phía sau xe không được suy diễn là `free_space` chỉ vì có thể là mặt đường.
+- Ca chưa chắc cần hỏi người soát (nếu không có, ghi “không có”): Không có.

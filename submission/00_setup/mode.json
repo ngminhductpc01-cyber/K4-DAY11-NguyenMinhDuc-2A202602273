@@ -1,0 +1,19 @@
+{
+  "members": [
+    "bach",
+    "duc",
+    "minh"
+  ],
+  "assignments": {
+    "bach": "B1-mid",
+    "duc": "B3-center",
+    "minh": "B4-center"
+  },
+  "self": "duc",
+  "slice": "B3-center",
+  "degrade": [],
+  "current_slice": "C0",
+  "support_prefill": false,
+  "support_slice": "",
+  "prefill_box_ids": []
+}
